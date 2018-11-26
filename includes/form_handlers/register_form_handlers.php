@@ -85,7 +85,7 @@ if (isset($_POST['reg_btn'])) {
       $profile_pic = "assets/images/profile_pics/default/head_amethyst.png";
     }
         
-    $query = mysqli_query($con, "INSERT INTO users VALUES (NULL, '$fname', '$lname', '$username', '$email', '$password', CURRENT_TIMESTAMP, '$profile_pic', 0, 0, 'no', ',');");
+    $query = mysqli_query($con, "INSERT INTO users VALUES (NULL, '$fname', '$lname', '$username', '$email', '$password', CURRENT_TIMESTAMP, '$profile_pic', 0, 0, '', ',');");
 
     array_push($error_array, "<span style='color: green;'>You're all set to login!</span><br>");
 
