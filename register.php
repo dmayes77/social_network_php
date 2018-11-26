@@ -1,6 +1,6 @@
 <?php 
 session_start();
-$con = mysqli_connect('localhost', 'root', '', 'social');
+$con = mysqli_connect("localhost", "root", "", "social");
 
 if (mysqli_connect_errno()) {
   echo "Failed to connect: " . mysqli_connect_errno();
@@ -29,18 +29,16 @@ if (isset($_POST['reg_btn'])) {
   
   $email = strip_tags($_POST['reg_email']);
   $email = str_replace(' ', '', $email);
-  $email = ucfirst(strtolower($email));
+  $email = strtolower($email);
   $_SESSION['reg_email'] = $email;
   
   $email2 = strip_tags($_POST['reg_email2']);
   $email2 = str_replace(' ', '', $email2);
-  $email2 = ucfirst(strtolower($email2));
+  $email2 = strtolower($email2);
   $_SESSION['reg_email2'] = $email2;
   
   $password = strip_tags($_POST['reg_password']);
   $password2 = strip_tags($_POST['reg_password2']);
-
-  $date = date("Y-m-d");
 
   if ($email == $email2) {
     // check if email format is valid
@@ -85,10 +83,24 @@ if (isset($_POST['reg_btn'])) {
 
     //generate username
     $uname = explode("@", $email);
-    $username = strtolower($uname[0]);
-    $u_check = mysqli_query($con, "UPDATE users SET username = '$username' WHERE email = '$email'");
-  }
+    $username = ucfirst(strtolower($uname[0]));
 
+    $rand = rand(1, 2);
+    if ($rand == 1) {
+      $profile_pic = "assets/images/profile_pics/default/head_alizarin.png";
+    } else if($rand == 2) {
+      $profile_pic = "assets/images/profile_pics/default/head_amethyst.png";
+    }
+        
+    $query = mysqli_query($con, "INSERT INTO users VALUES (NULL, '$fname', '$lname', '$username', '$email', '$password', CURRENT_TIMESTAMP, '$profile_pic', 0, 0, 'no', ',');");
+
+    array_push($error_array, "<span style='color: green;'>You're all set! Welcome $username </span><br>");
+
+    $_SESSION['reg_fname'] = "";
+    $_SESSION['reg_lname'] = "";
+    $_SESSION['reg_email'] = "";
+    $_SESSION['reg_email2'] = "";
+  }
 }
 ?>
 
@@ -172,6 +184,11 @@ if (isset($_POST['reg_btn'])) {
     ?>
 
     <input type="submit" name="reg_btn" value="Register">
+    <br>
+    <?php
+      if (in_array("<span style='color: green;'>You're all set! Welcome $username </span><br>", $error_array)) {
+        echo "<span style='color: green;'>You're all set! Welcome $username </span><br>";
+      } ?>
   </form>
 </body>
 </html>
