@@ -19,7 +19,6 @@ body {
 
 
 .wrapper {
-  
   background-image: url('../images/backgrounds/Desktop.jpg');
   background-size: cover;
   width: 100%;
@@ -34,10 +33,11 @@ body {
   top: 15%;
   width: 35%;
   background-color: #fff;
-  border: 1px solid #EDEDED;
+  border: 1px solid #3498db;
   border-radius: 7px;
   opacity: 0.975;
   max-width: 300px;
+  padding-bottom: 10px;
 }
 
 .login_header {
