@@ -17,6 +17,17 @@ body {
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+  color: #1b6698;
+}
+
+img {
+  width: 6%;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #13496c;
+}
 
 .wrapper {
   background-image: url('../images/backgrounds/Desktop.jpg');
@@ -30,14 +41,14 @@ body {
   position: relative;
   margin-right: auto;
   margin-left: auto;
-  top: 15%;
-  width: 45%;
-  background-color: #fff;
+  top: 10%;
+  width: 55%;
+  background-color: #F0FAFF;
   border: 1px solid #3498db;
   border-radius: 7px;
   opacity: 0.975;
-  max-width: 400px;
-  min-width: 300px;
+  max-width: 500px;
+  min-width: 350px;
   padding-bottom: 10px;
 }
 
@@ -57,7 +68,7 @@ body {
   font-family: 'Bellota-BoldItalic', sans-serif;
   margin-top: 0;
   margin-bottom: 0;
-  color: #005186;
+  color: #13496c;
   text-shadow: #73B6E2 0.5px 0.5px 0px;
   font-size: 250%;
 }
@@ -69,13 +80,14 @@ input[type="submit"] {
   border-radius: 5px;
   margin: 10px 0px;
   padding: 5px 10px;
-  color: #005186;
+  color: #13496c;
   text-shadow: #73B6E2 0.5px 0.5px 0px;
   font-size: 100%;
 }
 
 input[type="submit"]:hover {
   background-color: #fff;
+  color: #3498db;
 }
 
 input[type="text"], input[type="email"], input[type="password"] {
@@ -90,4 +102,8 @@ input[type="text"], input[type="email"], input[type="password"] {
 
 input[type="text"]:hover, input[type="email"]:hover, input[type="password"]:hover {
   border-color: #3498db;
+}
+
+#second {
+  display: none;
 }
